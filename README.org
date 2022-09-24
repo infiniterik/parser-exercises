@@ -105,3 +105,6 @@ A angry green cat meowed
 #+BEGIN_src txt :tangle tests/four/three.txt :mkdirp yes
 A silly green computer ran quickly
 #+END_src
+
+Extension:
+    Can you ensure that words agree with each other? For example, the language above allows "A angry", but in actual english, we would want to make sure we only accepted "An angry". How complicated do you think this would make the grammar?
