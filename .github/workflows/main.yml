@@ -37,7 +37,7 @@ jobs:
              echo Testing problem ${{ matrix.problem }}
              for f in tests/${{ matrix.problem }}/*.txt
                do
-                antlr4-parse ${{ matrix.problem }}.g4 prog $f >> ${{ matrix.problem }}
+                antlr4-parse ${{ matrix.problem }}.g4 prog $f >> ${{ matrix.problem }}.err 2>&1
                done
              if [ -s ${{ matrix.problem }}.err ]
              then
