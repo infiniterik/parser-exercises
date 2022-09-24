@@ -1,6 +1,6 @@
 * Problems
 
-1. Write a CFG in ~one.g4~ which recognizes all strings with at a substring of three ~1~s. The input strings can be of arbitrary length and can have more than three ~1~s
+1. Write a CFG in ~one.g4~ which recognizes all strings with at a substring of three ~1~ s. The input strings can be of arbitrary length and can have more than three ~1~ s
 
 Examples:
 
@@ -18,4 +18,90 @@ iasdf3h235111
 
 #+BEGIN_src txt :tangle tests/one/three.txt :mkdirp yes
 11111111111111111111111
+#+END_src
+
+2. Write a CFG in ~two.g4~ which recognizes all strings of an odd length.
+
+   NOTE: The tests won't tell you if you are accepting strings with an even number of characters.
+
+   Examples:
+
+#+BEGIN_src txt :tangle tests/two/one.txt :mkdirp yes
+www
+#+END_src
+
+#+BEGIN_src txt :tangle tests/two/two.txt :mkdirp yes
+wegni
+#+END_src
+
+#+BEGIN_src txt :tangle tests/two/three.txt :mkdirp yes
+wawwadageasgnow
+#+END_src
+
+#+BEGIN_src txt :tangle tests/two/three.txt :mkdirp yes
+w
+#+END_src
+
+
+3. Write a CFG in ~three.g4~ which recognizes all strings with an even number of the letter ~X~ but does NOT accept strings with an odd number of the letter ~X~. The ~X~ s don't have to be adjacent to each other.
+
+   NOTE: The tests won't tell you if you are accepting strings with odd numbers of ~X~.
+   HINT: Regular expressions are your friend here. ~[^a]~ is an expression that gives you all letters /except/ ~a~.
+
+   Examples:
+
+#+BEGIN_src txt :tangle tests/three/one.txt :mkdirp yes
+XX
+#+END_src
+
+#+BEGIN_src txt :tangle tests/three/two.txt :mkdirp yes
+XAX
+#+END_src
+
+#+BEGIN_src txt :tangle tests/three/three.txt :mkdirp yes
+XaXXaX
+#+END_src
+
+#+BEGIN_src txt :tangle tests/three/three.txt :mkdirp yes
+1XengenXnjdnge9qXngr98rn9engeXnsrknkurXX
+#+END_src
+
+4. You are writing software to read a course catalog and you want to recognize anything that looks like a course number - that is, any sequence of 2, 3, or 4 letters, followed by a sequence of 3 numbers where the first digit is ~1~, ~2~, or ~3~. The course number may or may not be followed by a ~-~ and a single capital letter or number.
+
+#+BEGIN_src txt :tangle tests/four/one.txt :mkdirp yes
+ABC231
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/two.txt :mkdirp yes
+CS208
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/three.txt :mkdirp yes
+ECON350-A
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/three.txt :mkdirp yes
+CHEM100-1
+#+END_src
+
+5. Write a CFG that can recognize simplified syntax for english.
+   - A sentence consists of a Noun Phrase (~NP~) followed by a Verb Phrase (~VP~).
+   - A noun phrase consists of a determiner (a, the), 0 or more adjectives (funny, silly, angry, green), and a noun (cat, computer, lawyer).
+   - A verb phrase consists of a verb (ran, meowed, fell) and 0 or more adverbs (quickly, quietly, messily), additional adverbs connected by the word ~and~.
+
+Examples:
+#+BEGIN_src txt :tangle tests/five/one.txt :mkdirp yes
+The angry lawyer ran messily
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/two.txt :mkdirp yes
+The silly computer fell quickly and quietly
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/three.txt :mkdirp yes
+A angry green cat meowed
+#+END_src
+
+#+BEGIN_src txt :tangle tests/four/three.txt :mkdirp yes
+A silly green computer ran quickly
 #+END_src
