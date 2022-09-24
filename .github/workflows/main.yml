@@ -25,11 +25,21 @@ jobs:
           cache: 'pip'
       - name: Install Dependencies
         run: pip install -r requirements.txt
+      - name: Examine parses
+        run: |
+             echo Testing problem ${{ matrix.problem }}
+             for f in tests/${{ matrix.problem }}/*.txt
+               do
+                antlr4-parse ${{ matrix.problem }}.g4 prog -tree $f
+               done
       - name: Run parsing test
         run: |
              echo Testing problem ${{ matrix.problem }}
              for f in tests/${{ matrix.problem }}/*.txt
                do
-                cat $f
-                antlr4-parse ${{ matrix.problem }}.g4 prog -tree $f
-              done
+                antlr4-parse ${{ matrix.problem }}.g4 prog $f >> ${{ matrix.problem }}
+               done
+             if [ `wc -l ${{ matrix.problem }}.err` -gt 0 ]
+             then
+                exit 1
+             fi
