@@ -12,6 +12,9 @@ on:
 
 jobs:
   test-grammar:
+    strategy:
+        matrix:
+            problem: [one, two, three, four, five]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
@@ -24,14 +27,9 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run parsing test
         run: |
-             for f in tests/*.txt
+             echo Testing problem ${{ matrix.problem }}
+             for f in tests/${{ matrix.problem }}/*.txt
                do
                 cat $f
-                echo "AST> "
-                antlr4-parse calc.g4 prog -tree $f
-                echo "---------------------"
+                antlr4-parse ${{ matrix.problem }}.g4 prog -tree $f
               done
-      - name: Run user code
-        run: python user.py
-      - name: Run full language tests
-        run: python run.py

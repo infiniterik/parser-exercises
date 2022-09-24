@@ -1,0 +1,21 @@
+* Problems
+
+1. Write a CFG in ~one.g4~ which recognizes all strings with at a substring of three ~1~s. The input strings can be of arbitrary length and can have more than three ~1~s
+
+Examples:
+
+#+BEGIN_src txt :tangle tests/one/one.txt :mkdirp yes
+111
+#+END_src
+
+#+BEGIN_src txt :tangle tests/one/two.txt :mkdirp yes
+iasdf3h235111
+#+END_src
+
+#+BEGIN_src txt :tangle tests/one/three.txt :mkdirp yes
+1sges<>a11111a1g120s/ad.sdeae
+#+END_src
+
+#+BEGIN_src txt :tangle tests/one/three.txt :mkdirp yes
+11111111111111111111111
+#+END_src
