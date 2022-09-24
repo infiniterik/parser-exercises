@@ -39,7 +39,7 @@ jobs:
                do
                 antlr4-parse ${{ matrix.problem }}.g4 prog $f >> ${{ matrix.problem }}
                done
-             if [ `wc -l ${{ matrix.problem }}.err` -gt 0 ]
+             if [ -s ${{ matrix.problem }}.err ]
              then
                 exit 1
              fi
